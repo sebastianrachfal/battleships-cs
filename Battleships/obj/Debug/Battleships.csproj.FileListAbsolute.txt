@@ -1,0 +1,15 @@
+C:\Users\woody\source\repos\Battleships\Battleships\bin\Debug\Battleships.exe.config
+C:\Users\woody\source\repos\Battleships\Battleships\bin\Debug\Battleships.exe
+C:\Users\woody\source\repos\Battleships\Battleships\bin\Debug\Battleships.pdb
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.csprojAssemblyReference.cache
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\MainWindow.g.cs
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\App.g.cs
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships_MarkupCompile.cache
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships_MarkupCompile.lref
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\MainWindow.baml
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.g.resources
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.Properties.Resources.resources
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.csproj.GenerateResource.cache
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.csproj.CoreCompileInputs.cache
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.exe
+C:\Users\woody\source\repos\Battleships\Battleships\obj\Debug\Battleships.pdb
