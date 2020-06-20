@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Battleships"
         mc:Ignorable="d"
         Title="BattleShips" Height="450" Width="800"
-        xml:space="preserve" Icon="ship (2).ico">
+        xml:space="preserve" Icon="ship.ico">
     <Grid>
 
         <RichTextBox IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="black" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2">
