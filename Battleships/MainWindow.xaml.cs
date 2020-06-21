@@ -1,7 +1,9 @@
-﻿using System;
+﻿using CLBattleships;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,9 +22,20 @@ namespace Battleships
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Game GameHandler;
         public MainWindow()
         {
             InitializeComponent();
+            GameHandler = new Game(FindName("gameScreen") as RichTextBox, FindName("playerCursor") as Run);
+            
+        }
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+        }
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            GameHandler.KeyPressed(e.Key);
         }
     }
 }

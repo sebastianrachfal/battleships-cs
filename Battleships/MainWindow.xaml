@@ -5,40 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Battleships"
         mc:Ignorable="d"
-        Title="BattleShips" Height="450" Width="800"
-        xml:space="preserve" Icon="ship.ico">
+        Title="BattleShips" Height="500" Width="1000"
+        xml:space="preserve" Icon="ship.ico" Loaded="WindowLoaded">
     <Grid>
 
-        <RichTextBox IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="black" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2">
+        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="black" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0" />
                     <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Focusable" Value="False"/>
                 </Style>
             </RichTextBox.Resources>
             <FlowDocument>
-                    <Paragraph>     a   b   c   d   e   f   g   h   i   j</Paragraph>
-                    <Paragraph>   ┏━━━┳━━━┳━━━┳━━━┳━━━┳━━━┳━━━┳━━━┳━━━┳━━━┓</Paragraph>
-                    <Paragraph> 1 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 2 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 3 ┃   ┃   ┃ x ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 4 ┃   ┃   ┃   ┃   ┃   ┃   ┃ o ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 5 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃ x ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 6 ┃   ┃   ┃   ┃ x ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 7 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 8 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph> 9 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫</Paragraph>
-                    <Paragraph>10 ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃   ┃</Paragraph>
-                    <Paragraph>   ┗━━━┻━━━┻━━━┻━━━┻━━━┻━━━┻━━━┻━━━┻━━━┻━━━┛</Paragraph>
+                    <Paragraph>                     Gracz                                             Komputer</Paragraph>
+                    <Paragraph>     a   b   c   d   e   f   g   h   i   j              a   b   c   d   e   f   g   h   i   j</Paragraph>
+                    <Paragraph>   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐</Paragraph>
+                    <Paragraph> 1 │   │   │   │   │   │   │   │   │   │   │        1 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 2 │   │   │   │   │   │   │   │   │   │   │        2 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 3 │   │   │   │   │   │   │   │   │   │   │        3 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 4 │   │   │   │   │   │   │   │   │   │   │        4 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 5 │   │   │   │   │   │   │   │   │   │   │        5 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 6 │   │   │   │   │   │   │   │   │   │   │        6 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 7 │   │   │   │   │   │   │   │   │   │   │        7 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 8 │   │   │   │   │   │   │   │   │   │   │        8 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph> 9 │   │   │   │   │   │   │   │   │   │   │        9 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+                    <Paragraph>10 │   │   │   │   │   │   │   │   │   │   │       10 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+                    <Paragraph>   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘</Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" x:Name="gameScreen" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </RichTextBox.Resources>
+            <FlowDocument>
+            </FlowDocument>
+        </RichTextBox>
+         <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </RichTextBox.Resources>
+            <FlowDocument>
+                    <Paragraph><Run Foreground="Salmon" x:Name="playerCursor" /></Paragraph>
             </FlowDocument>
         </RichTextBox>
     </Grid>
