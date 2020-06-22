@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Battleships"
         mc:Ignorable="d"
-        Title="BattleShips" Height="500" Width="1000"
+        Title="BattleShips" Height="500" Width="870" MinWidth="865"
         xml:space="preserve" Icon="ship.ico" Loaded="WindowLoaded">
     <Grid>
 
-        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="black" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0" />
@@ -63,7 +63,7 @@
                 </Style>
             </RichTextBox.Resources>
             <FlowDocument>
-                    <Paragraph><Run Foreground="Salmon" x:Name="playerCursor" /></Paragraph>
+                    <Paragraph><Run Foreground="#FF90BB46" x:Name="playerCursor" /></Paragraph>
             </FlowDocument>
         </RichTextBox>
     </Grid>

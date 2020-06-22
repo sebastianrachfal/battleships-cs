@@ -31,9 +31,9 @@ namespace Battleships
         }
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+            this.KeyDown += new KeyEventHandler(MainWindowKeyDown);
         }
-        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        void MainWindowKeyDown(object sender, KeyEventArgs e)
         {
             GameHandler.KeyPressed(e.Key);
         }
