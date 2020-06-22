@@ -1,6 +1,0 @@
-C:\Users\woody\source\repos\sebastianrachfal\battleships-cs\CLBattleships\bin\Debug\CLBattleships.dll
-C:\Users\woody\source\repos\sebastianrachfal\battleships-cs\CLBattleships\bin\Debug\CLBattleships.pdb
-C:\Users\woody\source\repos\sebastianrachfal\battleships-cs\CLBattleships\obj\Debug\CLBattleships.csprojAssemblyReference.cache
-C:\Users\woody\source\repos\sebastianrachfal\battleships-cs\CLBattleships\obj\Debug\CLBattleships.csproj.CoreCompileInputs.cache
-C:\Users\woody\source\repos\sebastianrachfal\battleships-cs\CLBattleships\obj\Debug\CLBattleships.dll
-C:\Users\woody\source\repos\sebastianrachfal\battleships-cs\CLBattleships\obj\Debug\CLBattleships.pdb
