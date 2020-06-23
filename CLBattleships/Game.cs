@@ -33,7 +33,7 @@ namespace CLBattleships
         {
             GameScreen = gameScreen;
             PlayerBoard = new Board();
-            ComputerBoard = new Board(true);
+            ComputerBoard = new Board(true, true);
             PlayerCursor = new Cursor(playerCursor);
             ChangePhase(GamePhase.BoardPlanning); // Temporary: development purposes
             UpdateScreen();
@@ -116,6 +116,7 @@ namespace CLBattleships
                 Run r = new Run();
                 r.Text = "       ";
                 p.Foreground = Brushes.DodgerBlue;
+                r.Foreground = Brushes.DarkGoldenrod;
                 for (int x = 0; x < 44; x++)
                 {
                     p.Inlines.Add("" + (char)playerData[x, y]);
