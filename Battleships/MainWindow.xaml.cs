@@ -17,25 +17,24 @@ using System.Windows.Shapes;
 
 namespace Battleships
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        private Game GameHandler;
-        public MainWindow()
-        {
-            InitializeComponent();
-            GameHandler = new Game(FindName("gameScreen") as RichTextBox, FindName("playerCursor") as Run);
-            
-        }
-        private void WindowLoaded(object sender, RoutedEventArgs e)
-        {
-            this.KeyDown += new KeyEventHandler(MainWindowKeyDown);
-        }
-        void MainWindowKeyDown(object sender, KeyEventArgs e)
-        {
-            GameHandler.KeyPressed(e.Key);
-        }
-    }
+	/// <summary>
+	/// Logika interakcji dla klasy MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window
+	{
+		private Game GameHandler;
+		public MainWindow()
+		{
+			InitializeComponent();
+			GameHandler = new Game(FindName("gameScreen") as RichTextBox, FindName("playerCursor") as Run, FindName("computerText") as Run);
+		}
+		private void WindowLoaded(object sender, RoutedEventArgs e)
+		{
+			this.KeyDown += new KeyEventHandler(MainWindowKeyDown);
+		}
+		void MainWindowKeyDown(object sender, KeyEventArgs e)
+		{
+			GameHandler.KeyPressed(e.Key);
+		}
+	}
 }

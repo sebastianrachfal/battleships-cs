@@ -1,55 +1,64 @@
 ﻿<Window x:Class="Battleships.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Battleships"
-        mc:Ignorable="d"
-        Title="BattleShips" Height="500" Width="890" MinWidth="865"
-        xml:space="preserve" Icon="ship.ico" Loaded="WindowLoaded" ResizeMode="NoResize">
-    <Window.Resources>
-        <Style TargetType="{x:Type Paragraph}">
-            <Setter Property="Margin" Value="0" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Focusable" Value="False"/>
-        </Style>
-    </Window.Resources>
-    <Grid>
-        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
-            <FlowDocument>
-                    <Paragraph>                     Gracz                                             Komputer                </Paragraph>
-                    <Paragraph>     a   b   c   d   e   f   g   h   i   j              a   b   c   d   e   f   g   h   i   j  </Paragraph>
-                    <Paragraph>   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐</Paragraph>
-                    <Paragraph> 1 │   │   │   │   │   │   │   │   │   │   │        1 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 2 │   │   │   │   │   │   │   │   │   │   │        2 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 3 │   │   │   │   │   │   │   │   │   │   │        3 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 4 │   │   │   │   │   │   │   │   │   │   │        4 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 5 │   │   │   │   │   │   │   │   │   │   │        5 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 6 │   │   │   │   │   │   │   │   │   │   │        6 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 7 │   │   │   │   │   │   │   │   │   │   │        7 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 8 │   │   │   │   │   │   │   │   │   │   │        8 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph> 9 │   │   │   │   │   │   │   │   │   │   │        9 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-                    <Paragraph>10 │   │   │   │   │   │   │   │   │   │   │       10 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-                    <Paragraph>   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘</Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" x:Name="gameScreen" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
-            <FlowDocument>
-            </FlowDocument>
-        </RichTextBox>
-         <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
-            <FlowDocument>
-                    <Paragraph><Run Foreground="#FF90BB46" x:Name="playerCursor" /></Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-    </Grid>
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:Battleships"
+		mc:Ignorable="d"
+		Title="BattleShips" Height="608" Width="890"
+		xml:space="preserve" Icon="ship.ico" Loaded="WindowLoaded" ResizeMode="NoResize">
+	<Window.Resources>
+		<Style TargetType="{x:Type Paragraph}">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="Focusable" Value="False"/>
+		</Style>
+	</Window.Resources>
+	<Grid>
+		<RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+			<FlowDocument>
+					<Paragraph>                     Gracz                                             Komputer                </Paragraph>
+					<Paragraph>     a   b   c   d   e   f   g   h   i   j              a   b   c   d   e   f   g   h   i   j  </Paragraph>
+					<Paragraph>   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐</Paragraph>
+					<Paragraph> 1 │   │   │   │   │   │   │   │   │   │   │        1 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 2 │   │   │   │   │   │   │   │   │   │   │        2 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 3 │   │   │   │   │   │   │   │   │   │   │        3 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 4 │   │   │   │   │   │   │   │   │   │   │        4 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 5 │   │   │   │   │   │   │   │   │   │   │        5 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 6 │   │   │   │   │   │   │   │   │   │   │        6 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 7 │   │   │   │   │   │   │   │   │   │   │        7 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 8 │   │   │   │   │   │   │   │   │   │   │        8 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph> 9 │   │   │   │   │   │   │   │   │   │   │        9 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+					<Paragraph>10 │   │   │   │   │   │   │   │   │   │   │       10 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+					<Paragraph>   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘</Paragraph>
+					<Paragraph></Paragraph>
+					<Paragraph Foreground="#FFFBC15B">┌────────────────────────────────────────────────────────────────────────────────────────────────┘</Paragraph>
+					<Paragraph Foreground="#FFFBC15B">│   Komputer: <Run Text="Zaczynajmy, ustaw swoje statki!" Foreground="White"  x:Name="computerText"></Run></Paragraph>
+					<Paragraph Foreground="#FFFBC15B">└────────────────────────────────────────────────────────────────────────────────────────────────┐</Paragraph>
+					<Paragraph></Paragraph>
+					<Paragraph  Foreground="#FF0CA3C5">┌───────────────────────────┬─────────────────────┬────────────────────────┬─────────────────────┐</Paragraph>
+					<Paragraph  Foreground="#FF0CA3C5">│ Strzałki - poruszanie się │ Spacja - wybór pola │  R - obracanie figurą  │  E - markuj strzał  │</Paragraph>
+					<Paragraph  Foreground="#FF0CA3C5">│                           │                     │                        │                     │</Paragraph>
+
+			</FlowDocument>
+		</RichTextBox>
+		<RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" x:Name="gameScreen" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+			<FlowDocument>
+			</FlowDocument>
+		</RichTextBox>
+		 <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+			<FlowDocument>
+					<Paragraph><Run Foreground="#FF90BB46" x:Name="playerCursor" /></Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+	</Grid>
 </Window>
