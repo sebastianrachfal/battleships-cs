@@ -15,47 +15,96 @@
 	<Grid>
 		<RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
 			<FlowDocument>
-					<Paragraph>                     Gracz                                             Komputer                </Paragraph>
-					<Paragraph>     a   b   c   d   e   f   g   h   i   j              a   b   c   d   e   f   g   h   i   j  </Paragraph>
-					<Paragraph>   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐</Paragraph>
-					<Paragraph> 1 │   │   │   │   │   │   │   │   │   │   │        1 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 2 │   │   │   │   │   │   │   │   │   │   │        2 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 3 │   │   │   │   │   │   │   │   │   │   │        3 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 4 │   │   │   │   │   │   │   │   │   │   │        4 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 5 │   │   │   │   │   │   │   │   │   │   │        5 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 6 │   │   │   │   │   │   │   │   │   │   │        6 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 7 │   │   │   │   │   │   │   │   │   │   │        7 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 8 │   │   │   │   │   │   │   │   │   │   │        8 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph> 9 │   │   │   │   │   │   │   │   │   │   │        9 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
-					<Paragraph>10 │   │   │   │   │   │   │   │   │   │   │       10 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
-					<Paragraph>   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘</Paragraph>
-					<Paragraph></Paragraph>
-					<Paragraph Foreground="#FFFBC15B">┌────────────────────────────────────────────────────────────────────────────────────────────────┘</Paragraph>
-					<Paragraph Foreground="#FFFBC15B">│   Komputer: <Run Text="Zaczynajmy, ustaw swoje statki!" Foreground="White"  x:Name="computerText"></Run></Paragraph>
-					<Paragraph Foreground="#FFFBC15B">└────────────────────────────────────────────────────────────────────────────────────────────────┐</Paragraph>
-					<Paragraph></Paragraph>
-					<Paragraph Foreground="#FF868DB9">┌───────────────────────────┬─────────────────────┬────────────────────────┬─────────────────────┐</Paragraph>
-					<Paragraph Foreground="#FF868DB9">│ Strzałki - poruszanie się │ Spacja - wybór pola │  R - obracanie figurą  │  E - markuj strzał  │</Paragraph>
-					<Paragraph Foreground="#FF868DB9">│                           │                     │                        │                     │</Paragraph>
-
+				<Paragraph>                     Gracz                                             Komputer                </Paragraph>
+				<Paragraph>     a   b   c   d   e   f   g   h   i   j              a   b   c   d   e   f   g   h   i   j  </Paragraph>
+				<Paragraph>   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐</Paragraph>
+				<Paragraph> 1 │   │   │   │   │   │   │   │   │   │   │        1 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 2 │   │   │   │   │   │   │   │   │   │   │        2 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 3 │   │   │   │   │   │   │   │   │   │   │        3 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 4 │   │   │   │   │   │   │   │   │   │   │        4 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 5 │   │   │   │   │   │   │   │   │   │   │        5 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 6 │   │   │   │   │   │   │   │   │   │   │        6 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 7 │   │   │   │   │   │   │   │   │   │   │        7 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 8 │   │   │   │   │   │   │   │   │   │   │        8 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph> 9 │   │   │   │   │   │   │   │   │   │   │        9 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤</Paragraph>
+				<Paragraph>10 │   │   │   │   │   │   │   │   │   │   │       10 │   │   │   │   │   │   │   │   │   │   │</Paragraph>
+				<Paragraph>   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘</Paragraph>
+				<Paragraph></Paragraph>
+				<Paragraph Foreground="#FFFBC15B">┌────────────────────────────────────────────────────────────────────────────────────────────────┘</Paragraph>
+				<Paragraph Foreground="#FFFBC15B">│   Komputer: <Run Text="Zaczynajmy, ustaw swoje statki!" Foreground="White"  x:Name="computerText"></Run></Paragraph>
+				<Paragraph Foreground="#FFFBC15B">└────────────────────────────────────────────────────────────────────────────────────────────────┐</Paragraph>
+				<Paragraph></Paragraph>
+				<Paragraph Foreground="#FF868DB9">┌───────────────────────────┬─────────────────────┬────────────────────────┬─────────────────────┐</Paragraph>
+				<Paragraph Foreground="#FF868DB9">│ Strzałki - poruszanie się │ Spacja - wybór pola │  R - obracanie figurą  │  E - markuj strzał  │</Paragraph>
+				<Paragraph Foreground="#FF868DB9">│                           │                     │                        │                     │</Paragraph>
 			</FlowDocument>
 		</RichTextBox>
 		<RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" x:Name="gameScreen" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
 			<FlowDocument>
 			</FlowDocument>
 		</RichTextBox>
-		 <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+        <RichTextBox x:Name="mainMenu" Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
 			<FlowDocument>
-					<Paragraph><Run Foreground="#FF90BB46" x:Name="playerCursor" /></Paragraph>
+				<Paragraph>&#10;</Paragraph>
+				<Paragraph Foreground="#FF25B0E4">                            ██████╗████████╗ █████╗ ████████╗██╗  ██╗██╗                         </Paragraph>
+				<Paragraph>                           ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██║ ██╔╝██║                         </Paragraph>
+				<Paragraph Foreground="#FF25B0E4">                           ╚█████╗    ██║   ███████║   ██║   █████═╝ ██║                         </Paragraph>
+				<Paragraph>                            ╚═══██╗   ██║   ██╔══██║   ██║   ██╔═██╗ ██║                         </Paragraph>
+				<Paragraph Foreground="#FF25B0E4">                           ██████╔╝   ██║   ██║  ██║   ██║   ██║ ╚██╗██║                         </Paragraph>
+				<Paragraph>                           ╚═════╝    ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝                         </Paragraph>
+				<Paragraph>&#10;&#10;&#10;</Paragraph>
+				<Paragraph>                                      ─┐</Paragraph>
+				<Paragraph>                                       │ Rozpocznij  grę</Paragraph>
+				<Paragraph>                                       └──────────────────┐&#10;</Paragraph>
+				<Paragraph>                                      ─┐</Paragraph>
+				<Paragraph>                                       │ Informacje</Paragraph>
+				<Paragraph>                                       └──────────────────┐&#10;</Paragraph>
+				<Paragraph>                                      ─┐</Paragraph>
+				<Paragraph>                                       │ Zakończ</Paragraph>
+				<Paragraph>                                       └──────────────────┐</Paragraph>
+				<Paragraph>&#10;&#10;&#10;</Paragraph>
+                <Paragraph TextAlignment="Center" Foreground="#FFA0A0A0">Wybór zatwierdź spacją</Paragraph>
+				<Paragraph TextAlignment="Center" Foreground="#FFA0A0A0">Sebastian Rachfał</Paragraph>
+                <Paragraph TextAlignment="Center" Foreground="#FFA0A0A0">2020</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+        <RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" Block.LineHeight="16"  Background="Transparent" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+			<FlowDocument>
+				<Paragraph><Run Foreground="#FF90BB46" x:Name="playerCursor" /></Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+        <RichTextBox Opacity="0" x:Name="information" Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
+			<FlowDocument>
+				<Paragraph>&#10;</Paragraph>
+				<Paragraph TextAlignment="Center">█ █▄ █ █▀▀ █▀█ █▀█ █▀▄▀█ ▄▀█ █▀▀   █ █▀▀</Paragraph>
+				<Paragraph TextAlignment="Center">█ █ ▀█ █▀  █▄█ █▀▄ █ ▀ █ █▀█ █▄▄ █▄█ ██▄</Paragraph>
+				<Paragraph>&#10;&#10;&#10;</Paragraph>
+				<Paragraph>  1. Rozpocznij grę w menu głównym, twoim przeciwnikiem jest komputer.</Paragraph>
+                <Paragraph>  2. Gra zaczyna się od ułożenia statków na planszy gracza.</Paragraph>
+				<Paragraph>  3. Gracz musi umieścić na planszy statki o następujących wielkościach:</Paragraph>
+				<Paragraph>      - 4 (jeden statek),</Paragraph>
+                <Paragraph>      - 3 (dwa statki),</Paragraph>
+				<Paragraph>      - 2 (trzy statki),</Paragraph>
+				<Paragraph>      - 1 (cztery statki).</Paragraph>
+				<Paragraph>  4. Po ułożeniu statków na planszy rozpoczyna się rozgrywka, na każdy strzał gracza</Paragraph>
+                <Paragraph>     komputer odpowiada automatycznie.</Paragraph>
+				<Paragraph>  5. Wszystkie akcje w grze są wykonywane następującymi przyciskami:</Paragraph>
+				<Paragraph>      - Strzałki - poruszanie celownika,</Paragraph>
+                <Paragraph>      - Spacja - strzał, zatwierdzanie akcji,</Paragraph>
+                <Paragraph>      - Enter - zatwierdzenie ponownej rozgrywki po zakonczeniu gry,</Paragraph>
+                <Paragraph>      - E - markowanie pozycji na planszy komputera(w celu ułatwienia przeglądu planszy),</Paragraph>
+                <Paragraph>      - R - obracanie statku w fazie planowania.</Paragraph>
+                <Paragraph>&#10;&#10;&#10;</Paragraph>
+                <Paragraph TextAlignment="Center" Foreground="#FFA0A0A0">Wciśnij spację, aby wrócić</Paragraph>
 			</FlowDocument>
 		</RichTextBox>
 	</Grid>

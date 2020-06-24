@@ -8,12 +8,14 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace CLBattleships
 {
 	enum GamePhase
 	{
 		MainMenu,
+		Information,
 		BoardPlanning,
 		Game,
 		End
@@ -23,12 +25,19 @@ namespace CLBattleships
 	/// </summary>
 	public class Game
 	{
+		// UI elements
 		private RichTextBox GameScreen;
-		private Board PlayerBoard, ComputerBoard;
+		private RichTextBox MainMenu;
+		private RichTextBox Information;
+		private Run ComputerText;
+
+		// Current game phase
 		private GamePhase CurrentPhase;
+
+		// Game objects
+		private Board PlayerBoard, ComputerBoard;
 		private Cursor PlayerCursor;
 		private ComputerLogic ComputerBrain;
-		private Run ComputerText;
 
 		// Board planning phase
 		private int currentShipLength = 4;
@@ -36,7 +45,7 @@ namespace CLBattleships
 		private bool currentPlacementViable = false;
 		private int shipsLeftToPlace = 1;
 
-		// Game phase
+		// Game scoring
 		private int playerScore = 0;
 		private int computerScore = 0;
 
@@ -46,15 +55,20 @@ namespace CLBattleships
 		/// <param name="gameScreen">RichTextBox for a playing board</param>
 		/// <param name="playerCursor">Run for player cursor</param>
 		/// <param name="computerText">Run for computer sayings</param>
-		public Game(RichTextBox gameScreen, Run playerCursor, Run computerText)
+		/// <param name="mainMenu">RichTextBox of main menu</param>
+		/// <param name="information">RichTextBox of information screen</param>
+		public Game(RichTextBox gameScreen, Run playerCursor, Run computerText, RichTextBox mainMenu, RichTextBox information)
 		{
 			GameScreen = gameScreen;
+			MainMenu = mainMenu;
+			ComputerText = computerText;
+			Information = information;
+
 			PlayerBoard = new Board();
 			ComputerBoard = new Board(true, true);
 			PlayerCursor = new Cursor(playerCursor);
 			ComputerBrain = new ComputerLogic();
-			ComputerText = computerText;
-			ChangePhase(GamePhase.BoardPlanning); // Temporary: development purposes
+			
 			UpdateScreen();
 		}
 		/// <summary>
@@ -103,7 +117,7 @@ namespace CLBattleships
 					PlayerCursor.Y = Math.Max(PlayerCursor.Y - 1, 0);
 					break;
 				case Key.Down:
-					PlayerCursor.Y = Math.Min(PlayerCursor.Y + 1, (CurrentPhase == GamePhase.BoardPlanning && currentShipOrientation) ? 10 - currentShipLength : 9);
+					PlayerCursor.Y = Math.Min(PlayerCursor.Y + 1, (CurrentPhase == GamePhase.BoardPlanning && currentShipOrientation) ? 10 - currentShipLength : (CurrentPhase == GamePhase.MainMenu ? 2 : 9));
 					break;
 				case Key.E:
 					if (CurrentPhase == GamePhase.Game && currentPlacementViable)
@@ -166,6 +180,27 @@ namespace CLBattleships
 						else PostComputerMessage(ComputerBrain.GetComputerResponse(playerResult, computerResult));
 						
 						UpdateScreen();
+					} else if(CurrentPhase == GamePhase.MainMenu)
+                    {
+						switch(PlayerCursor.Y)
+                        {
+							case 0:
+								ChangePhase(GamePhase.BoardPlanning);
+								AnimateTransition(MainMenu, false);
+								UpdateScreen();
+								break;
+							case 1:
+								ChangePhase(GamePhase.Information);
+								AnimateTransition(Information, true);
+								break;
+							case 2:
+								Application.Current.Shutdown();
+								break;
+                        }
+                    } else if(CurrentPhase == GamePhase.Information)
+                    {
+						ChangePhase(GamePhase.MainMenu);
+						AnimateTransition(Information, false);
 					}
 					break;
 			}
@@ -179,6 +214,24 @@ namespace CLBattleships
 				currentPlacementViable = ComputerBoard.CanShoot(PlayerCursor.X, PlayerCursor.Y);
 				PlayerCursor.UpdatePhase(GamePhase.Game, 1, false, currentPlacementViable);
 			}
+		}
+		/// <summary>
+		/// Animate object's fade in or out
+		/// </summary>
+		/// <param name="element">RichTextBox element to animate</param>
+		/// <param name="show">To show or hide element</param>
+		private void AnimateTransition(RichTextBox element, bool show)
+        {
+			var animation = new DoubleAnimation
+			{
+				To = (show ? 1 : 0),
+				BeginTime = TimeSpan.FromSeconds(0),
+				Duration = TimeSpan.FromSeconds(.4),
+				FillBehavior = FillBehavior.Stop
+			};
+
+			animation.Completed += (s, a) => element.Opacity = show ? 1 : 0;
+			element.BeginAnimation(UIElement.OpacityProperty, animation);
 		}
 		/// <summary>
 		/// A function that updates most of the content on the screen

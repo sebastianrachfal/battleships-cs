@@ -58,6 +58,10 @@ namespace CLBattleships
 			string topPad = string.Concat(Enumerable.Repeat("\x0a", 2 + y * 2)), leftPad;
 			switch (currentPhase)
 			{
+				case GamePhase.MainMenu:
+					leftPad = string.Concat(Enumerable.Repeat(" ", 38));
+					playerCursor.Text = string.Concat(Enumerable.Repeat("\x0a", 12 + y * 4)) + leftPad + "━┓" + "\x0a" + leftPad + " ┃" + "\x0a" + leftPad + " ┗━━━━━━━━━━━━━━━━━━┓";
+					break;
 				case GamePhase.Game:
 					leftPad = string.Concat(Enumerable.Repeat(" ", 54 + x * 4));
 					playerCursor.Text = topPad + leftPad + "┏━━━┓" + "\x0a" + leftPad + "┃   ┃" + "\x0a" + leftPad + "┗━━━┛";
