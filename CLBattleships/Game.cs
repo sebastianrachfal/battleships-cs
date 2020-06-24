@@ -18,6 +18,9 @@ namespace CLBattleships
 		Game,
 		End
 	}
+	/// <summary>
+	/// Main endpoint for app logic
+	/// </summary>
 	public class Game
 	{
 		private RichTextBox GameScreen;
@@ -37,6 +40,12 @@ namespace CLBattleships
 		private int playerScore = 0;
 		private int computerScore = 0;
 
+		/// <summary>
+		/// Constructor for Game class, prepares board for gameplay
+		/// </summary>
+		/// <param name="gameScreen">RichTextBox for a playing board</param>
+		/// <param name="playerCursor">Run for player cursor</param>
+		/// <param name="computerText">Run for computer sayings</param>
 		public Game(RichTextBox gameScreen, Run playerCursor, Run computerText)
 		{
 			GameScreen = gameScreen;
@@ -48,6 +57,9 @@ namespace CLBattleships
 			ChangePhase(GamePhase.BoardPlanning); // Temporary: development purposes
 			UpdateScreen();
 		}
+		/// <summary>
+		/// Reset the game after round ends
+		/// </summary>
 		private void ResetGame()
         {
 			PlayerBoard = new Board();
@@ -64,11 +76,19 @@ namespace CLBattleships
 			UpdateScreen();
 			PostComputerMessage("No cóż, czas na kolejną rozgrywkę, ustawiaj statki!");
 		}
+		/// <summary>
+		/// Change the phase of the game(look GamePhase enum)
+		/// </summary>
+		/// <param name="phase">One of the different game phases</param>
 		private void ChangePhase(GamePhase phase)
 		{
 			CurrentPhase = phase;
 			PlayerCursor.UpdatePhase(phase, 4, false);
 		}
+		/// <summary>
+		/// Simple keyboard event handler
+		/// </summary>
+		/// <param name="key">Key pressed</param>
 		public void KeyPressed(Key key)
 		{
 			switch(key)
@@ -160,6 +180,9 @@ namespace CLBattleships
 				PlayerCursor.UpdatePhase(GamePhase.Game, 1, false, currentPlacementViable);
 			}
 		}
+		/// <summary>
+		/// A function that updates most of the content on the screen
+		/// </summary>
 		private void UpdateScreen()
 		{
 			ViewData[,] playerData = PlayerBoard.GenerateViewData();
@@ -169,9 +192,11 @@ namespace CLBattleships
 			for (int y = 0; y < 21; y++)
 			{
 				Paragraph p = new Paragraph();
-				Run r = new Run();
-				r.Text = "       ";
-				p.Foreground = Brushes.DodgerBlue;
+                Run r = new Run
+                {
+                    Text = "       "
+                };
+                p.Foreground = Brushes.DodgerBlue;
 				r.Foreground = Brushes.DarkGoldenrod;
 				for (int x = 0; x < 44; x++)
 				{
@@ -184,6 +209,10 @@ namespace CLBattleships
 
 			GameScreen.Document = a;
 		}
+		/// <summary>
+		/// Simple function to post computer's messages
+		/// </summary>
+		/// <param name="message">Your message</param>
 		private void PostComputerMessage(string message)
         {
 			ComputerText.Text = message;

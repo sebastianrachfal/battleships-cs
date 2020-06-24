@@ -7,13 +7,11 @@
 		mc:Ignorable="d"
 		Title="BattleShips" Height="608" Width="890"
 		xml:space="preserve" Icon="ship.ico" Loaded="WindowLoaded" ResizeMode="NoResize">
-	<Window.Resources>
-		<Style TargetType="{x:Type Paragraph}">
+	<Window.Resources><Style TargetType="{x:Type Paragraph}">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="FontSize" Value="16" />
 			<Setter Property="Focusable" Value="False"/>
-		</Style>
-	</Window.Resources>
+		</Style></Window.Resources>
 	<Grid>
 		<RichTextBox Cursor="Arrow" BorderThickness="0" Focusable="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Block.LineHeight="16"  Background="#FF383838" Foreground="White" BorderBrush="Black" FontFamily="Consolas" Grid.ColumnSpan="2" IsInactiveSelectionHighlightEnabled="True">
 			<FlowDocument>
@@ -45,9 +43,9 @@
 					<Paragraph Foreground="#FFFBC15B">│   Komputer: <Run Text="Zaczynajmy, ustaw swoje statki!" Foreground="White"  x:Name="computerText"></Run></Paragraph>
 					<Paragraph Foreground="#FFFBC15B">└────────────────────────────────────────────────────────────────────────────────────────────────┐</Paragraph>
 					<Paragraph></Paragraph>
-					<Paragraph  Foreground="#FF0CA3C5">┌───────────────────────────┬─────────────────────┬────────────────────────┬─────────────────────┐</Paragraph>
-					<Paragraph  Foreground="#FF0CA3C5">│ Strzałki - poruszanie się │ Spacja - wybór pola │  R - obracanie figurą  │  E - markuj strzał  │</Paragraph>
-					<Paragraph  Foreground="#FF0CA3C5">│                           │                     │                        │                     │</Paragraph>
+					<Paragraph Foreground="#FF868DB9">┌───────────────────────────┬─────────────────────┬────────────────────────┬─────────────────────┐</Paragraph>
+					<Paragraph Foreground="#FF868DB9">│ Strzałki - poruszanie się │ Spacja - wybór pola │  R - obracanie figurą  │  E - markuj strzał  │</Paragraph>
+					<Paragraph Foreground="#FF868DB9">│                           │                     │                        │                     │</Paragraph>
 
 			</FlowDocument>
 		</RichTextBox>

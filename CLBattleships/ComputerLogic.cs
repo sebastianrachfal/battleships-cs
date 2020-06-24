@@ -11,14 +11,15 @@ namespace CLBattleships
 		// difficulty?
 
 		Random random;
-		public ComputerLogic()
-		{
-			random = new Random();
-		}
+		/// <summary>
+		/// Generates next move for computer
+		/// </summary>
+		/// <param name="boardData">BoardValue array with board data</param>
+		/// <returns>Coordinate object</returns>
 		public Coordinate GenerateNextMove(BoardValue[,] boardData)
 		{
 			random = new Random();
-			int x = 0, y = 0;
+			int x, y;
 			do
 			{
 				x = random.Next(0, 10);
@@ -26,6 +27,12 @@ namespace CLBattleships
 			} while ((int)boardData[x,y] > 2);
 			return new Coordinate(x, y);
 		}
+		/// <summary>
+		/// Generates a "witty" response to a player move
+		/// </summary>
+		/// <param name="player">Players's BoardValue after shot</param>
+		/// <param name="computer">Computer's BoardValue after shot</param>
+		/// <returns></returns>
 		public string GetComputerResponse(BoardValue player, BoardValue computer)
         {
 			switch(player)

@@ -30,13 +30,21 @@ namespace CLBattleships
 		ShipHorizontalDown = '┳',
 		Missed = '○',
 		Hit = '●',
-		Marked = '■'
+		Marked = '□'
 	}
+	/// <summary>
+	/// Handles all board logic and calculations
+	/// </summary>
 	class Board
 	{
 		private BoardValue[,] BoardData;
 		private bool[,] BoardMarkings;
 		private bool isComputer;
+		/// <summary>
+		/// Standard constructor
+		/// </summary>
+		/// <param name="randomBoard">True, if you want the board to be randomized</param>
+		/// <param name="computer">True, if it's computer's board</param>
 		public Board(bool randomBoard = false, bool computer = false)
 		{
 			BoardData = new BoardValue[10, 10];
@@ -45,32 +53,62 @@ namespace CLBattleships
 			if(randomBoard)
 				RandomizeBoard();
 		}
+		/// <summary>
+		/// Simple "getter" function
+		/// </summary>
+		/// <returns>BoardData</returns>
 		public BoardValue[,] GetBoardValues() => BoardData;
+		/// <summary>
+		/// Board shooting check
+		/// </summary>
+		/// <param name="x">X coordinate of the shot</param>
+		/// <param name="y">Y coordinate of the shot</param>
+		/// <returns>(true=can shoot; false=can't shoot)</returns>
 		public bool CanShoot(int x, int y)
 		{
 			return (int)BoardData[x, y] < 3;
 		}
+		/// <summary>
+		///	Mark a spot on the board
+		/// </summary>
+		/// <param name="x">X coordinate of the marking</param>
+		/// <param name="y">Y coordinate of the marking</param>
 		public void MarkSpot(int x, int y)
         {
 			BoardMarkings[x, y] = !BoardMarkings[x, y];
         }
+		/// <summary>
+		/// Simple check to determine if ship at (x, y) is vertical
+		/// </summary>
+		/// <param name="x">X coordinate of the ship</param>
+		/// <param name="y">Y coordinate of the ship</param>
+		/// <returns>(true=vertical; false=horizontal)</returns>
 		bool IsVertical(int x, int y)
 		{
+			// Can simplify, left for clarity
 			if (y - 1 != -1 && (BoardData[x, y - 1] == BoardValue.Hit || BoardData[x, y - 1] == BoardValue.Ship))
 				return true;
 			if (y + 1 != 10 && (BoardData[x, y + 1] == BoardValue.Hit || BoardData[x, y + 1] == BoardValue.Ship))
 				return true;
 			return false;
 		}
+		/// <summary>
+		/// Function for shooting on board, calculates sinking of a ship, and provides state after shot
+		/// </summary>
+		/// <param name="x">X coordinate of the shot</param>
+		/// <param name="y">Y coordinate of the shot</param>
+		/// <returns>State of a cell at (x,y) after shot</returns>
 		public BoardValue Shoot(int x, int y)
 		{
 			if((BoardData[x, y] = BoardData[x, y] == BoardValue.Empty ? BoardValue.Missed : BoardValue.Hit) == BoardValue.Hit)
 			{
-				int i = 0, j = 0;
+				int i, j;
 				BoardValue boardPointer;
-				List<Coordinate> pastCoords = new List<Coordinate>();
-				pastCoords.Add(new Coordinate(x, y));
-				bool vertical = IsVertical(x, y);
+                List<Coordinate> pastCoords = new List<Coordinate>
+                {
+                    new Coordinate(x, y)
+                };
+                bool vertical = IsVertical(x, y);
 				bool wholeShip = true;
 				if (vertical)
 				{
@@ -134,10 +172,14 @@ namespace CLBattleships
 			
 			return BoardData[x, y];
 		}
-		//todo docs
-		// (_x,_y) - coordinates
-		// l - length of ship
-		// o - orientation of ship(true=vertical; false=horizontal)
+		/// <summary>
+		/// Checks if given placement of the ship is viable
+		/// </summary>
+		/// <param name="_x">X coordinate of the ship</param>
+		/// <param name="_y">Y coordinate of the ship</param>
+		/// <param name="l">Length of the ship(1<=l<=4)</param>
+		/// <param name="o">Orientation of the ship(true=vertical; false=horizontal)</param>
+		/// <returns>(true=viable; false=not viable)</returns>
 		public bool IsPlaceViable(int _x, int _y, int l, bool o)
 		{
 			for (int x = Math.Max(0, _x - 1); x <= (o ? _x + 1 : _x + l); x++)
@@ -146,12 +188,22 @@ namespace CLBattleships
 						return false;
 			return true;
 		}
+		/// <summary>
+		/// Allows for a ship placement on the board given the specification
+		/// </summary>
+		/// <param name="_x">X coordinate of the ship</param>
+		/// <param name="_y">Y coordinate of the ship</param>
+		/// <param name="l">Length of the ship(1<=l<=4)</param>
+		/// <param name="o">Orientation of the ship(true=vertical; false=horizontal)</param>
 		public void PlaceShipOnBoard(int _x, int _y, int l, bool o)
 		{
 			for (int x = _x; x < (o ? _x + 1 : _x + l); x++)
 				for (int y = _y; y < (o ? _y + l : _y + 1); y++)
 					BoardData[x, y] = BoardValue.Ship;
 		}
+		/// <summary>
+		/// Randomize current board
+		/// </summary>
 		private void RandomizeBoard()
 		{
 			var rand = new Random();
@@ -159,8 +211,8 @@ namespace CLBattleships
 			{
 				for(int j = 0; j <= 4-i; j++)
 				{
-					int x = 0, y = 0;
-					bool o = false;
+					int x, y;
+					bool o;
 					do
 					{
 						x = rand.Next(0, 10);
@@ -171,16 +223,23 @@ namespace CLBattleships
 				}
 			}
 		}
+		/// <summary>
+		/// Checks if given (x, y) is a ship
+		/// </summary>
+		/// <param name="x">X coordinate of the check</param>
+		/// <param name="y">Y coordinate of the check</param>
+		/// <returns></returns>
 		private bool IsShip(int x, int y)
 		{
 			// Ship=2,
 			// Hit=3,
 			// Sank=4,
-
-			// WARNING: Only checking toward upper left corner for simplicity
-
 			return x >= 0 && y >= 0 && x <= 9 && y <= 9 && (int)BoardData[x, y] > 1 && (int)BoardData[x, y] < 5;
 		}
+		/// <summary>
+		/// Generate the view data to fill game view
+		/// </summary>
+		/// <returns>ViewData array with board characters</returns>
 		public ViewData[,] GenerateViewData()
 		{
 			ViewData[,] data = new ViewData[44, 21];

@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace CLBattleships
 {
+	/// <summary>
+	/// Class for handling the player interaction
+	/// </summary>
 	class Cursor
 	{
 		private int x = 0, y = 0, shipLength = 2;
@@ -37,15 +40,22 @@ namespace CLBattleships
 			}
 		}
 		Run playerCursor;
+		/// <summary>
+		/// Constructor for a Cursor
+		/// </summary>
+		/// <param name="cursor">Run object of a player's cursor</param>
 		public Cursor(Run cursor)
 		{
 			playerCursor = cursor;
 			greenBrush = new SolidColorBrush(Color.FromArgb(255, 144, 187, 70));
 			UpdateCursor();
 		}
+		/// <summary>
+		/// Updates the cursor based on current phase, coordinates and availability of placement
+		/// </summary>
 		public void UpdateCursor()
 		{
-			string topPad = string.Concat(Enumerable.Repeat("\x0a", 2 + y * 2)), leftPad = "";
+			string topPad = string.Concat(Enumerable.Repeat("\x0a", 2 + y * 2)), leftPad;
 			switch (currentPhase)
 			{
 				case GamePhase.Game:
@@ -112,6 +122,13 @@ namespace CLBattleships
 			}
 		}
 		// o - orientation of ship(true=vertical; false=horizontal)
+		/// <summary>
+		/// Updates game phase and parameters for Cursor object
+		/// </summary>
+		/// <param name="phase">Current GamePhase</param>
+		/// <param name="length">Length of a current ship</param>
+		/// <param name="orientation">Orientation of a current ship</param>
+		/// <param name="viablePlace">Is the place on board viable</param>
 		public void UpdatePhase(GamePhase phase, int length = 1, bool orientation = false, bool viablePlace = true)
 		{
 			currentPhase = phase;

@@ -26,7 +26,7 @@ namespace Battleships
 		public MainWindow()
 		{
 			InitializeComponent();
-			GameHandler = new Game(FindName("gameScreen") as RichTextBox, FindName("playerCursor") as Run, FindName("computerText") as Run);
+            GameHandler = new Game(FindName("gameScreen") as RichTextBox, FindName("playerCursor") as Run, FindName("computerText") as Run);
 		}
 		private void WindowLoaded(object sender, RoutedEventArgs e)
 		{
